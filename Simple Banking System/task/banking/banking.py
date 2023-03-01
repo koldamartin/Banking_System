@@ -46,7 +46,6 @@ def check_log_in():
     if account_exists_check is not None and result[0] == card_pin:
         print("\nYou have successfully logged in!\n")
         return True
-        #check_balance()
     else:
         print("\nWrong card number or PIN!\n")
 

@@ -72,7 +72,7 @@ def add_income():
 def transfer():
     target_account = input("\nTransfer\nEnter card number:\n>")
     target_acc_balance = cur.execute("SELECT balance FROM card WHERE number = ?", (target_account,)).fetchone()
-    if target_account[-1] != luhn_algorithm(target_account[:6], target_account[6:-1]): #check if acc_num passes the luhn's algorithm
+    if len(target_account) != 16 or int(target_account[-1]) not in range(1,10) or target_account[-1] != luhn_algorithm(target_account[:6], target_account[6:-1]): #check if acc_num passes the luhn's algorithm
         print("Probably you made a mistake in the card number. Please try again!\n")
     elif target_acc_balance is None: #check if the card number exists
         print("Such a card does not exist.\n")
